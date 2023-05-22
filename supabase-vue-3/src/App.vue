@@ -1,16 +1,11 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import NavBar from "./components/NavBar.vue";
 </script>
 
 <template>
   <header>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <!-- <RouterLink to="/home">Home</RouterLink> -->
-    </nav>
-    <RouterView />
+    <NavBar></NavBar>
   </header>
-  <h1>fuihau</h1>
 </template>
 <style scoped>
 header {
