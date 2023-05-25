@@ -1,7 +1,6 @@
 <template>
   <div>
     <RouterLink to="/">Login</RouterLink>
-    <RouterLink to="/front">Front</RouterLink>
     <router-view></router-view>
   </div>
 </template>

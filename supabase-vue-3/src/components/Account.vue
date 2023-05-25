@@ -1,6 +1,7 @@
 <script setup>
 import { supabase } from "../supabase";
 import { onMounted, ref, toRefs } from "vue";
+import { RouterLink, RouterView } from "vue-router";
 
 const props = defineProps(["session"]);
 const { session } = toRefs(props);
@@ -76,6 +77,9 @@ async function signOut() {
 </script>
 
 <template>
+  <RouterLink to="/front">Front</RouterLink>
+  <router-view></router-view>
+
   <form class="form-widget" @submit.prevent="updateProfile">
     <div>
       <label for="email">Email</label>
