@@ -1,6 +1,7 @@
 <template>
   <div>
-    <RouterLink to="/">Login</RouterLink>
+    <RouterLink to="/front">Front</RouterLink>
+    <RouterLink to="/account">Profile</RouterLink>
     <router-view></router-view>
   </div>
 </template>
@@ -10,4 +11,4 @@ import { RouterLink, RouterView } from "vue-router";
 export default {};
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
