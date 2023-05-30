@@ -2,6 +2,7 @@
   <div>
     <RouterLink to="/front">Front</RouterLink>
     <RouterLink to="/account">Profile</RouterLink>
+    <RouterLink to="/home">Home</RouterLink>
     <router-view></router-view>
   </div>
 </template>
