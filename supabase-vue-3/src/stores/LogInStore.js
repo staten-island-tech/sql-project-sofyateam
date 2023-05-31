@@ -1,7 +1,8 @@
 import { defineStore } from "pinia";
-
-export const useLogInStore = defineStore("LogInStore", {
-  state: () => {
-    return {};
-  },
-});
+import session from "Account"
+export const useLogInStore = defineStore({
+  id: 'LogIn',
+  state()=> ({
+    user: username
+  })
+})
