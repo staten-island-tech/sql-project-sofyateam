@@ -3,6 +3,6 @@ import session from "Account"
 export const useLogInStore = defineStore({
   id: 'LogIn',
   state()=> ({
-    user: username
-  })
+    user: null,
+  }),
 })
