@@ -1,8 +1,14 @@
 import { defineStore } from "pinia";
-import session from "Account"
-export const useLogInStore = defineStore({
-  id: 'LogIn',
-  state()=> ({
+import { supabase } from "../supabase.js";
+
+export const userStore = defineStore("user", {
+  state: () => ({
     user: null,
+    booking: {},
   }),
-})
+  actions: {
+    getUser() {
+      this.user = supabase.auth.getUser();
+    },
+  },
+});

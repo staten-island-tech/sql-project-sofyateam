@@ -1,11 +1,26 @@
 <template>
   <div>
-    <h1>enter info</h1>
+    <BudgetEnter v-if="session" :session="session"></BudgetEnter>
+    <div v-else>Log in</div>
   </div>
 </template>
 
-<script>
-export default {};
+<script setup>
+import BudgetEnter from "../components/BudgetEnter.vue";
+import { onMounted, ref } from "vue";
+import { supabase } from "../supabase";
+
+const session = ref();
+
+onMounted(() => {
+  supabase.auth.getSession().then(({ data }) => {
+    session.value = data.session;
+  });
+
+  supabase.auth.onAuthStateChange((_, _session) => {
+    session.value = _session;
+  });
+});
 </script>
 
 <style scoped></style>
