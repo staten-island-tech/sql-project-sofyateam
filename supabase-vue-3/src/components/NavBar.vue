@@ -1,8 +1,7 @@
 <template>
   <div>
-    <RouterLink to="/front">Front</RouterLink>
-    <RouterLink to="/account">Profile</RouterLink>
-    <RouterLink to="/home">Home</RouterLink>
+    <RouterLink to="/front">Front </RouterLink>
+    <RouterLink to="/account">Profile </RouterLink>
     <router-view></router-view>
   </div>
 </template>
