@@ -24,7 +24,7 @@ const handleSignIn = async () => {
       alert("Sign in successful!");
       console.log(user);
       logStore.logged = true;
-      router.push("/front");
+      router.push("/account");
     }
   } catch (error) {
     if (error instanceof Error) {

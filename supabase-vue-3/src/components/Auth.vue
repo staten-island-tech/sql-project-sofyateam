@@ -16,8 +16,6 @@ const handleSignUp = async () => {
     });
     if (error) throw error;
     alert("Sign up successful!");
-    console.log(user);
-    console.log(session);
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message);
