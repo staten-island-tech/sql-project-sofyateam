@@ -1,7 +1,9 @@
 <template>
   <div>
     <BudgetEnter v-if="session" :session="session"></BudgetEnter>
-    <div v-else>OGIN</div>
+    <div v-else>
+      Please Log In or Sign Up on the other view to see your information
+    </div>
   </div>
 </template>
 

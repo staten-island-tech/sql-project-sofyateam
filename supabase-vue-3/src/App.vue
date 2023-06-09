@@ -4,6 +4,7 @@ import FrontView from "./views/FrontView.vue";
 import { onMounted, ref } from "vue";
 import { supabase } from "./supabase";
 import { useLogStore } from "./stores/LogInStore";
+import AccountVIew from "./views/AccountVIew.vue";
 
 const session = ref();
 async function checkLog() {
@@ -25,6 +26,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <FrontView v-if="session" :session="session"></FrontView>
-  <HomeView v-else></HomeView>
+  <FrontView></FrontView>
 </template>
