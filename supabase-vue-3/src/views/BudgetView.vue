@@ -1,14 +1,11 @@
 <template>
   <div>
-    <RouterLink to="/budget">Budget </RouterLink>
-    <RouterLink to="/account">Account </RouterLink>
+    <BudgetEnter v-if="session" :session="session"></BudgetEnter>
+    <div v-else>OGIN</div>
   </div>
-  <div></div>
-  <router-view></router-view>
 </template>
 
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
 import BudgetEnter from "../components/BudgetEnter.vue";
 import { onMounted, ref, toRef } from "vue";
 import { supabase } from "../supabase";

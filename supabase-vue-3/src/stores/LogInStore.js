@@ -1,14 +1,15 @@
 import { defineStore } from "pinia";
-import { supabase } from "../supabase.js";
+import { supabase } from "../supabase";
 
-export const userStore = defineStore("user", {
+export const useLogStore = defineStore("logging", {
   state: () => ({
-    user: null,
-    booking: {},
+    logged: false,
   }),
   actions: {
-    getUser() {
-      this.user = supabase.auth.getUser();
+    async logOut() {
+      this.logged = false;
+      const { error } = await supabase.auth.signOut();
     },
   },
+  persist: true,
 });

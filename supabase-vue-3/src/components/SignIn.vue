@@ -1,23 +1,31 @@
 <script setup>
 import { ref } from "vue";
 import { supabase } from "../supabase";
+import { useLogStore } from "../stores/LogInStore";
+import router from "../router";
+import { storeToRefs } from "pinia";
 
 const loading = ref(false);
 const email = ref("");
 const password = ref("");
+const logStore = useLogStore();
+const { logged } = storeToRefs(logStore);
 
-const handleSignUp = async () => {
+const handleSignIn = async () => {
   try {
     loading.value = true;
-    console.log(password.value);
-    const { user, error } = await supabase.auth.signUp({
+    const { data: user, error } = await supabase.auth.signInWithPassword({
       email: email.value,
       password: password.value,
     });
-    if (error) throw error;
-    alert("Sign up successful!");
-    console.log(user);
-    console.log(session);
+    if (error) {
+      console.log(error.message);
+    } else {
+      alert("Sign in successful!");
+      console.log(user);
+      logStore.logged = true;
+      router.push("/front");
+    }
   } catch (error) {
     if (error instanceof Error) {
       alert(error.message);
@@ -33,10 +41,10 @@ const clearInputs = () => {
 </script>
 
 <template>
-  <form class="row flex-center flex" @submit.prevent="handleSignUp">
+  <form class="row flex-center flex" @submit.prevent="handleSignIn">
     <div class="col-6 form-widget">
-      <h3>OR</h3>
-      <p class="description">Create a new account</p>
+      <h1 class="header">Budget App</h1>
+      <p class="description">Sign in to your account</p>
       <div>
         <input
           class="inputField"
@@ -59,7 +67,7 @@ const clearInputs = () => {
         <input
           type="submit"
           class="button block"
-          :value="loading ? 'Loading' : 'Sign up'"
+          :value="loading ? 'Loading' : 'Sign in'"
           :disabled="loading"
         />
       </div>

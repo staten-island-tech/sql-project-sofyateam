@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>kadgglos</h1>
     <form @submit.prevent="updateClear">
       <label for="amount">Amount:</label>
       <input type="number" id="amount" v-model="amount" required />

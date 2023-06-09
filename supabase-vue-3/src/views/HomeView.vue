@@ -1,9 +1,10 @@
+<script setup>
+import SignIn from "../components/SignIn.vue";
+import Auth from "../components/Auth.vue";
+</script>
 <template>
-  <div>
-    <h1>iufghhs</h1>
-  </div>
+  <SignIn></SignIn>
+  <Auth></Auth>
 </template>
-
-<script></script>
 
 <style scoped></style>
